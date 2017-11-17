@@ -245,6 +245,7 @@ suite('TeletypePackage', function () {
     {
       assert(!pack2.portalStatusBarIndicator.isPopoverVisible())
       assert(!await pack2.joinPortal('some-portal-id'))
+      await pack2.portalStatusBarIndicator.initialOpenPromise
       assert(pack2.portalStatusBarIndicator.isPopoverVisible())
 
       const {popoverComponent} = pack2.portalStatusBarIndicator
