@@ -998,6 +998,9 @@ suite('TeletypePackage', function () {
     if (options.signIn == null || options.signIn) {
       await credentialCache.set('oauth-token', 'token-' + nextTokenId++)
       await pack.signInUsingSavedToken()
+    } else {
+      // We still need to activate the client for some tests
+      await pack.getClient()
     }
     packages.push(pack)
     return pack
